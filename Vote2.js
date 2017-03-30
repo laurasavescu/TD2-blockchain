@@ -9,7 +9,7 @@ contract Token {
     
     }
 
-
+/// Le contrat Vote hérite de Token pour créer le monnaie locale : les points de fidélités
 contract Vote is Token {
     
     
@@ -87,6 +87,7 @@ contract Vote is Token {
 
     }
     
+    /// Enable the users to check if they win something with their fidelity points
     function Recompense(address a) returns (string affich) 
     {       
         Voter vot1= voters[a];
@@ -95,6 +96,7 @@ contract Vote is Token {
     }
 
 //event
+//Determinate the proposal with the most votes
     function winningProposal() onlyChairperson constant returns (uint8 winningProposal)  {
         uint256 winningVoteCount = 0;
         for (uint8 proposal = 0; proposal < proposals.length; proposal++)
